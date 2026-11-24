@@ -22,14 +22,17 @@ export default function Navbar() {
           <a href="#how-it-works" className="sb-nav-link">
             How It Works
           </a>
+          <a href="#reverse-mentorship" className="sb-nav-link">
+            Reverse Mentorship
+          </a>
           <a href="#ai-agents" className="sb-nav-link">
-            AI Agents
+            AI Suite
           </a>
           <a href="#returnships" className="sb-nav-link">
             Returnships
           </a>
           <a href="#stories" className="sb-nav-link">
-            Returner Stories
+            Stories
           </a>
         </nav>
 
@@ -64,14 +67,17 @@ export default function Navbar() {
         <a href="#how-it-works" className="sb-nav-link" onClick={() => setOpen(false)}>
           How It Works
         </a>
+        <a href="#reverse-mentorship" className="sb-nav-link" onClick={() => setOpen(false)}>
+          Reverse Mentorship
+        </a>
         <a href="#ai-agents" className="sb-nav-link" onClick={() => setOpen(false)}>
-          AI Agents
+          AI Suite
         </a>
         <a href="#returnships" className="sb-nav-link" onClick={() => setOpen(false)}>
           Returnships
         </a>
         <a href="#stories" className="sb-nav-link" onClick={() => setOpen(false)}>
-          Returner Stories
+          Stories
         </a>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '6px' }}>
           {isAuthenticated ? (

@@ -24,8 +24,8 @@ export default function Footer() {
           <div>
             <Logo light showTagline />
             <p style={{ marginTop: '16px', fontSize: '14px', lineHeight: 1.65, maxWidth: '280px' }}>
-              Empowering talented professionals—especially women returning from career breaks—to
-              translate lived experience into high-growth roles.
+              Empowering career returners, mid-career pivoters, and retired leaders to translate
+              lived experience and swap AI skills through two-way mentorship.
             </p>
           </div>
 
@@ -33,9 +33,9 @@ export default function Footer() {
             <h4 style={{ color: '#FFFFFF', fontSize: '14px', marginBottom: '14px' }}>Platform</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '10px', fontSize: '14px' }}>
               <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#ai-agents">AI Career Agents</a></li>
+              <li><a href="#reverse-mentorship">Reverse Mentorship</a></li>
+              <li><a href="#ai-agents">AI Career Suite</a></li>
               <li><a href="#returnships">Returnship Board</a></li>
-              <li><Link to="/auth">Career Readiness Check</Link></li>
             </ul>
           </div>
 

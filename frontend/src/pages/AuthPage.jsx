@@ -161,7 +161,7 @@ export default function AuthPage() {
                   id="auth-name"
                   className="sb-input"
                   type="text"
-                  placeholder="e.g. Maya Lin"
+                  placeholder="e.g. Meera Deshmukh or Rajesh Kulkarni"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -247,7 +247,7 @@ export default function AuthPage() {
             style={{ width: '100%' }}
             onClick={handleDemo}
           >
-            <Sparkles size={15} /> Continue as Demo Returner (Maya Lin)
+            <Sparkles size={15} /> Continue as Demo Returner (Meera Deshmukh)
           </Button>
         </div>
       </div>

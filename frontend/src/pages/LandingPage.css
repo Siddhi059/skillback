@@ -416,6 +416,79 @@
   background: linear-gradient(180deg, #f43f8e, #f59e0b);
 }
 
+/* Two-Way Reverse Mentorship Showcase */
+.sb-rm-pair-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.sb-rm-pair-tab {
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.sb-rm-pair-tab:hover {
+  border-color: var(--border-lavender);
+  transform: translateY(-1px);
+}
+
+.sb-rm-pair-tab.active {
+  background: linear-gradient(135deg, #ffeaf2 0%, #fef3c7 100%);
+  color: var(--purple-700);
+  border-color: rgba(225, 29, 116, 0.34);
+  box-shadow: var(--shadow-sm);
+}
+
+.sb-rm-exchange-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.sb-rm-swap-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sb-rm-swap-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e11d74 0%, #f59e0b 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -6px rgba(225, 29, 116, 0.45);
+}
+
+@media (max-width: 900px) {
+  .sb-rm-exchange-grid {
+    grid-template-columns: 1fr;
+  }
+  .sb-rm-swap-bridge {
+    flex-direction: row;
+    padding: 4px 0;
+  }
+}
+
 .sb-cta-banner {
   position: relative;
   overflow: hidden;

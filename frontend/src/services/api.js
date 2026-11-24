@@ -101,7 +101,7 @@ export const authService = {
       });
     } catch (err) {
       if (!isNetworkOrProxyError(err)) throw err;
-      const initials = (name || 'Maya Lin')
+      const initials = (name || 'Meera Deshmukh')
         .split(' ')
         .map((part) => part[0])
         .join('')

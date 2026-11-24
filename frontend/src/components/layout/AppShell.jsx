@@ -32,7 +32,7 @@ const AGENT_ITEMS = [
 ];
 
 const COMMUNITY_ITEMS = [
-  { to: '/app/community', label: 'Mentor Circles', icon: Users },
+  { to: '/app/community', label: 'Reverse Mentorship', icon: Users },
   { to: '/app/settings', label: 'Preferences', icon: Settings },
 ];
 
@@ -43,7 +43,7 @@ const PAGE_TITLES = {
   '/app/skill-roadmap': 'Skill Gap & Upskilling Plan',
   '/app/interview-coach': 'AI Interview Confidence Coach',
   '/app/jobs': 'Returnships & Flexible Roles',
-  '/app/community': 'Mentorship & Peer Circles',
+  '/app/community': 'Two-Way Reverse Mentorship',
   '/app/settings': 'Account & Return Preferences',
 };
 
@@ -205,10 +205,10 @@ export default function AppShell() {
               <Bell size={16} />
             </button>
             <div className="sb-avatar-pill">
-              <div className="sb-avatar-circle">{user?.avatarInitials || 'ML'}</div>
+              <div className="sb-avatar-circle">{user?.avatarInitials || 'MD'}</div>
               <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
                 <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)' }}>
-                  {user?.name || 'Maya Lin'}
+                  {user?.name || 'Meera Deshmukh'}
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                   {user?.breakDuration ? `${user.breakDuration} break` : 'Career Returner'}

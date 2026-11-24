@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import {
   Sparkles,
   ArrowRight,
+  ArrowLeftRight,
   CheckCircle2,
-  ShieldCheck,
   Compass,
   Mic,
   Briefcase,
@@ -15,6 +15,7 @@ import {
   Wand2,
   SlidersHorizontal,
   BarChart3,
+  Layers,
 } from 'lucide-react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
@@ -31,63 +32,66 @@ import {
   HeroComebackDrawing,
 } from '../components/common/Doodles';
 import { ReadinessTrajectoryChart, SkillBenchmarkChart } from '../components/common/Charts';
-import { RETURNSHIP_JOBS, STORIES } from '../data/mockData';
+import {
+  RETURNSHIP_JOBS,
+  REVERSE_MENTORSHIP_PAIRS,
+  REVERSE_MENTORSHIP_STEPS,
+  STORIES,
+} from '../data/mockData';
 import { useAuth } from '../context/useAuth';
 import './LandingPage.css';
 
 const HERO_TRANSFORMATIONS = [
   {
-    id: 'maya',
-    tabLabel: 'Maya · 3.5-Yr Break',
-    name: 'Maya Lin',
-    avatar: 'maya',
-    targetTrack: 'Lead Product Manager',
-    priorContext: '7 yrs FinTech Product · Caregiving & Relocation pause',
-    readiness: 86,
-    atsLift: '+29% ATS Lift',
-    rawContext: 'Managed family care schedules, relocation logistics, and school digital fundraising.',
+    id: 'meera',
+    tabLabel: 'Meera · 4-Yr Break',
+    name: 'Meera Deshmukh',
+    avatar: 'meera',
+    targetTrack: 'FinTech Risk & Strategy Lead',
+    priorContext: '8 yrs Corporate Banking · Family Caregiving pause',
+    readiness: 88,
+    atsLift: '+31% ATS Lift',
+    rawContext: 'Managed household finances, community audit volunteering, and regulatory reading.',
     reframedBullet:
-      'Directed multi-stakeholder operations, annual budgeting, and community outreach (+42% digital engagement) while completing AI product workflows.',
+      'Directed financial controls, compliance risk diagnostics, and AI-assisted lending UX flows through a 4-week Reverse Mentorship co-build.',
     company: 'Veridian Pay',
-    matchedRole: 'Product Manager — Returnship Cohort',
-    matchDetails: 'Remote · Paid Mentorship · Flexible Hours',
+    matchedRole: 'FinTech Risk & Product Strategy — Returnship',
+    matchDetails: 'Remote · Executive Sponsor + Gen-Z AI Buddy',
     matchScore: '95% Match',
   },
   {
-    id: 'elena',
-    tabLabel: 'Elena · 5-Yr Break',
-    name: 'Elena Rostova',
-    avatar: 'elena',
-    targetTrack: 'Staff Data Engineer',
-    priorContext: '6 yrs Cloud Analytics · Maternity & Elder Care pause',
-    readiness: 89,
+    id: 'rajesh',
+    tabLabel: 'Rajesh · Retired Eng',
+    name: 'Rajesh Kulkarni',
+    avatar: 'rajesh',
+    targetTrack: 'Principal AI Project Advisor',
+    priorContext: '28 yrs Mechanical Engineering · Encore Advisory Track',
+    readiness: 91,
     atsLift: '+34% ATS Lift',
-    rawContext:
-      'Coordinated elder care medical records and built an open-source neighborhood mutual-aid tracker.',
+    rawContext: 'Retired Chief Engineer mentoring junior builders and learning AI project tracking.',
     reframedBullet:
-      'Architected Python/SQL data pipelines for a local civic initiative and modernized fluency in dbt, Snowflake, and LLM evaluation workflows.',
-    company: 'Northstar Cloud',
-    matchedRole: 'Senior Data Platform Returnship',
-    matchDetails: 'Hybrid or Remote · 16-Week Ramp · Executive Sponsor',
-    matchScore: '93% Match',
+      'Paired 28 years of capital project governance with Notion AI, Linear roadmaps, and Copilot technical spec workflows.',
+    company: 'Aurelia Systems',
+    matchedRole: 'Principal Project Advisor — Encore Fellowship',
+    matchDetails: 'Hybrid — Pune / Flexible · AI Co-Pilot Track',
+    matchScore: '94% Match',
   },
   {
-    id: 'priya',
-    tabLabel: 'Priya · 2-Yr Break',
-    name: 'Priya Sharma',
-    avatar: 'priya',
-    targetTrack: 'Director of People Ops',
-    priorContext: '9 yrs HR Strategy · Health & Personal Sabbatical',
-    readiness: 92,
-    atsLift: '+31% ATS Lift',
-    rawContext:
-      'Advised two early-stage founders pro bono and redesigned return-to-work onboarding playbooks.',
+    id: 'arjun',
+    tabLabel: 'Arjun · Educator Pivot',
+    name: 'Arjun Mehta',
+    avatar: 'arjun',
+    targetTrack: 'EdTech Curriculum & AI Lead',
+    priorContext: '10 yrs STEM Educator · 2-Yr Sabbatical & Tech Pivot',
+    readiness: 86,
+    atsLift: '+29% ATS Lift',
+    rawContext: 'Taught high school physics and designed adaptive study guides during family sabbatical.',
     reframedBullet:
-      'Advised seed-stage leadership on async onboarding frameworks, retention diagnostics, and inclusive career re-entry programs.',
-    company: 'Lumina Health',
-    matchedRole: 'Senior Program Manager, People Ops',
-    matchDetails: 'Flexible Core Hours · 4-Day Ramp Option',
-    matchScore: '96% Match',
+      'Translated decade of STEM curriculum design into interactive LLM learning flows and cohort retention analytics.',
+    company: 'Northstar Cloud',
+    matchedRole: 'EdTech Curriculum & AI Learning Lead',
+    matchDetails: 'Remote · Async-First · Flexible Core Hours',
+    matchScore: '92% Match',
   },
 ];
 
@@ -95,22 +99,22 @@ const STEPS = [
   {
     num: '01',
     title: 'Share Your Story & Pause',
-    desc: 'Tell us about your prior career, your break duration, and the caregiving, community, or personal projects you led along the way.',
+    desc: 'Tell us about your prior career, retirement, sabbatical, or caregiving pause—plus the projects and leadership you carried forward.',
   },
   {
     num: '02',
     title: 'Translate Transferable Value',
-    desc: 'Our Break & Resume AI reframes non-traditional experience into executive-ready competencies without apologizing for your gap.',
+    desc: 'Our Break & Resume AI reframes career breaks and pivots into executive-ready competencies backed by high-signal ATS keywords.',
   },
   {
     num: '03',
-    title: 'Bridge Modern Skill Gaps',
-    desc: 'Follow a realistic 4–6 hr/week refresher roadmap and practice behavioral interviews with our warm AI Confidence Coach.',
+    title: 'Swap Skills via Reverse Mentorship',
+    desc: 'Pair with a Gen-Z digital mentor to trade decades of domain judgment for hands-on fluency in AI tools and modern workflows.',
   },
   {
     num: '04',
     title: 'Land Break-Friendly Roles',
-    desc: 'Match directly with paid returnships, flexible-hour teams, and mentors who champion nonlinear career paths.',
+    desc: 'Match directly with paid returnships, encore fellowships, and flexible-hour teams who champion nonlinear careers.',
   },
 ];
 
@@ -122,15 +126,16 @@ const PARTNER_COMPANIES = [
   'CloudScale',
 ];
 
-const STORY_AVATARS = ['ananya', 'rachel', 'sofia'];
-
 export default function LandingPage() {
   const navigate = useNavigate();
   const { loginAsDemo } = useAuth();
-  const [selectedId, setSelectedId] = useState('maya');
+  const [selectedId, setSelectedId] = useState('meera');
+  const [selectedPairId, setSelectedPairId] = useState(REVERSE_MENTORSHIP_PAIRS[0].id);
 
   const activeTransform =
     HERO_TRANSFORMATIONS.find((item) => item.id === selectedId) || HERO_TRANSFORMATIONS[0];
+  const activePair =
+    REVERSE_MENTORSHIP_PAIRS.find((p) => p.id === selectedPairId) || REVERSE_MENTORSHIP_PAIRS[0];
 
   const handleDemoLaunch = async (targetPath = '/app') => {
     await loginAsDemo();
@@ -158,7 +163,7 @@ export default function LandingPage() {
               style={{ position: 'absolute', top: '-12px', right: '28px' }}
             />
             <span className="sb-hero-eyebrow">
-              <Sparkles size={13} /> AI-Powered Career Restart Platform
+              <Sparkles size={13} /> AI Career Restart & Two-Way Reverse Mentorship
             </span>
 
             <h1 className="sb-hero-title">
@@ -170,9 +175,9 @@ export default function LandingPage() {
             </h1>
 
             <p className="sb-hero-subtitle">
-              SkillBack helps talented professionals—especially women returning after caregiving,
-              relocation, or personal career breaks—translate lived expertise, refresh modern
-              skills, and connect with vetted returnship employers.
+              SkillBack helps talented professionals—career returners, caregivers, mid-career
+              pivoters, and retired experts—translate lived wisdom, master modern AI tools through
+              two-way reverse mentorship, and connect with vetted employers.
             </p>
 
             <div className="sb-hero-ctas">
@@ -186,10 +191,10 @@ export default function LandingPage() {
 
             <div className="sb-hero-trust">
               <span>
-                <CheckCircle2 size={15} color="var(--purple-600)" /> Built for 1–10+ year breaks
+                <CheckCircle2 size={15} color="var(--purple-600)" /> Career breaks, pivots & encore tracks
               </span>
               <span>
-                <ShieldCheck size={15} color="var(--purple-600)" /> Zero-judgment AI coaching
+                <ArrowLeftRight size={15} color="var(--purple-600)" /> Two-way Gen-Z ↔ Senior swaps
               </span>
               <span>
                 <HeartHandshake size={15} color="var(--purple-600)" /> 180+ return-friendly teams
@@ -219,7 +224,7 @@ export default function LandingPage() {
               >
                 <span className="sb-live-dot" /> Live Break-to-Impact Preview
               </span>
-              <span style={{ color: 'var(--text-on-dark-muted)' }}>Toggle persona</span>
+              <span style={{ color: 'var(--text-on-dark-muted)' }}>Toggle profile</span>
             </div>
 
             <div className="sb-preview-switcher" role="tablist" aria-label="Sample career-break transformations">
@@ -259,14 +264,14 @@ export default function LandingPage() {
               <div className="sb-preview-pill">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <span style={{ fontSize: '11px', fontWeight: 700, color: '#FDE68A', letterSpacing: '0.06em' }}>
-                    BREAK CONTEXT → AI TRANSLATION
+                    EXPERIENCE → AI TRANSLATION
                   </span>
                   <span style={{ fontSize: '11.5px', color: '#6EE7B7', fontWeight: 700 }}>
                     {activeTransform.atsLift}
                   </span>
                 </div>
                 <p style={{ fontSize: '12px', color: 'var(--text-on-dark-muted)', marginBottom: '8px', lineHeight: 1.45 }}>
-                  <strong style={{ color: '#FBCFE8' }}>Pause:</strong> {activeTransform.rawContext}
+                  <strong style={{ color: '#FBCFE8' }}>Context:</strong> {activeTransform.rawContext}
                 </p>
                 <div
                   style={{
@@ -291,7 +296,7 @@ export default function LandingPage() {
                   <PartnerLogoMark company={activeTransform.company} size={36} />
                   <div>
                     <span style={{ fontSize: '11px', fontWeight: 700, color: '#FDE68A', display: 'block' }}>
-                      TOP RETURNSHIP MATCH · {activeTransform.company.toUpperCase()}
+                      TOP MATCH · {activeTransform.company.toUpperCase()}
                     </span>
                     <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#FFFFFF' }}>
                       {activeTransform.matchedRole}
@@ -326,7 +331,7 @@ export default function LandingPage() {
                 }}
               >
                 <span style={{ color: 'var(--text-on-dark-muted)' }}>
-                  Interactive preview · Try with your own break story
+                  Interactive preview · Try with your own story
                 </span>
                 <button
                   type="button"
@@ -373,19 +378,19 @@ export default function LandingPage() {
         <div className="sb-container sb-stats-grid">
           <div className="sb-stat-item">
             <h3>18,400+</h3>
-            <p>Women & career returners supported across Tech, Finance, and Ops</p>
+            <p>Returners, pivoters & encore professionals supported globally</p>
           </div>
           <div className="sb-stat-item">
-            <h3>6.2 Weeks</h3>
-            <p>Average time from resume translation to first returnship interview</p>
+            <h3>2,900+</h3>
+            <p>Active Two-Way Reverse Mentorship pairs swapping wisdom & AI skills</p>
           </div>
           <div className="sb-stat-item">
             <h3>180+</h3>
-            <p>Employer partners offering paid returnships & structured onboarding</p>
+            <p>Employer partners offering paid returnships & encore fellowships</p>
           </div>
           <div className="sb-stat-item">
             <h3>92%</h3>
-            <p>Returners report higher confidence explaining career pauses</p>
+            <p>Members report higher confidence bridging gaps & modern tools</p>
           </div>
         </div>
       </section>
@@ -413,8 +418,9 @@ export default function LandingPage() {
                 A Structured Comeback Designed Around Real Life
               </h2>
               <p style={{ fontSize: '15.5px', color: 'var(--text-secondary)', marginTop: '12px', lineHeight: 1.65 }}>
-                Career breaks aren’t empty spaces on a timeline—they are chapters of resilience,
-                adaptability, and perspective. Here is how SkillBack turns your pause into momentum.
+                Whether you paused for family caregiving, retired from a decades-long career, or
+                are pivoting industries—your experience is an asset. Here is how SkillBack turns
+                transition into momentum.
               </p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -436,11 +442,189 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Flagship Bento-Grid Workspace + Live Charts Showcase */}
-      <section id="ai-agents" className="sb-section sb-section-lavender">
+      {/* Flagship Two-Way Reverse Mentorship Section */}
+      <section id="reverse-mentorship" className="sb-section sb-section-lavender">
         <div className="sb-container">
           <div className="sb-section-header">
-            <Badge tone="yellow">Flagship Career Analytics & AI Suite</Badge>
+            <Badge tone="yellow">
+              <ArrowLeftRight size={13} /> Two-Way Reverse Mentorship
+            </Badge>
+            <h2>Wisdom Meets Modern Tech: Both Generations Teach & Grow</h2>
+            <p>
+              Experienced and retired professionals bring irreplaceable stakeholder judgment,
+              industry depth, and calm leadership—while Gen-Z specialists mentor them hands-on in
+              AI tools, modern digital workflows, and emerging tech trends.
+            </p>
+          </div>
+
+          {/* How Two-Way Reverse Mentorship Works */}
+          <div className="sb-grid-3" style={{ marginBottom: '44px' }}>
+            {REVERSE_MENTORSHIP_STEPS.map((step) => (
+              <div key={step.num} className="sb-card sb-card-interactive sb-step-card">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span className="sb-step-num">{step.num}</span>
+                  <Badge tone="lavender">Two-Way Exchange</Badge>
+                </div>
+                <h3 style={{ fontSize: '18px', fontWeight: 700 }}>{step.title}</h3>
+                <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.62 }}>
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Interactive Sample Pairing Cards */}
+          <div>
+            <div style={{ textAlign: 'center', marginBottom: '14px' }}>
+              <span style={{ fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--purple-700)' }}>
+                Explore Live Skill-Swap Pairings
+              </span>
+            </div>
+
+            <div className="sb-rm-pair-tabs" role="tablist" aria-label="Sample reverse mentorship pairings">
+              {REVERSE_MENTORSHIP_PAIRS.map((pair) => (
+                <button
+                  key={pair.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={selectedPairId === pair.id}
+                  onClick={() => setSelectedPairId(pair.id)}
+                  className={`sb-rm-pair-tab ${selectedPairId === pair.id ? 'active' : ''}`}
+                >
+                  <span>{pair.senior.name.split(' ')[0]}</span>
+                  <ArrowLeftRight size={13} />
+                  <span>{pair.genZ.name.split(' ')[0]}</span>
+                  <span style={{ opacity: 0.75, fontSize: '11.5px' }}>· {pair.badge}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Active Interactive Pairing Spotlight Card */}
+            <div key={activePair.id} className="sb-card sb-animate-swap" style={{ padding: '28px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                  <Badge tone="yellow">{activePair.badge}</Badge>
+                  <Badge tone="neutral">
+                    <Clock size={12} /> {activePair.cadence}
+                  </Badge>
+                </div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--purple-700)' }}>
+                  <Layers size={15} /> Shared Track: {activePair.trackTitle}
+                </div>
+              </div>
+
+              <div className="sb-rm-exchange-grid">
+                {/* Senior / Returning Professional Side */}
+                <div
+                  style={{
+                    padding: '20px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'linear-gradient(155deg, #FEFCE8 0%, #FEF3C7 100%)',
+                    border: '1px solid rgba(245, 158, 11, 0.28)',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                    <ReturnerAvatar variant={activePair.senior.avatar} size={48} />
+                    <div>
+                      <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#92400E' }}>
+                        Experienced / Returning Partner
+                      </span>
+                      <h4 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--navy-900)' }}>
+                        {activePair.senior.name}
+                      </h4>
+                      <div style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
+                        {activePair.senior.title}
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#92400E', marginBottom: '8px' }}>
+                    Teaches & Shares:
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
+                    {activePair.senior.shares.map((skill) => (
+                      <Badge key={skill} tone="yellow" style={{ background: '#FFFFFF', borderColor: 'rgba(245, 158, 11, 0.35)' }}>
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Two-Way Bridge */}
+                <div className="sb-rm-swap-bridge">
+                  <div className="sb-rm-swap-circle" aria-hidden="true">
+                    <ArrowLeftRight size={20} />
+                  </div>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Skill Swap
+                  </span>
+                </div>
+
+                {/* Gen-Z Digital Mentor Side */}
+                <div
+                  style={{
+                    padding: '20px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'linear-gradient(155deg, #FFF5F8 0%, #FFEAF2 100%)',
+                    border: '1px solid rgba(236, 72, 153, 0.24)',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                    <ReturnerAvatar variant={activePair.genZ.avatar} size={48} />
+                    <div>
+                      <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--purple-700)' }}>
+                        Gen-Z Digital & AI Mentor
+                      </span>
+                      <h4 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--navy-900)' }}>
+                        {activePair.genZ.name}
+                      </h4>
+                      <div style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
+                        {activePair.genZ.title}
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--purple-700)', marginBottom: '8px' }}>
+                    Mentors In:
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
+                    {activePair.genZ.shares.map((skill) => (
+                      <Badge key={skill} tone="lavender" style={{ background: '#FFFFFF' }}>
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  marginTop: '18px',
+                  paddingTop: '16px',
+                  borderTop: '1px solid var(--border-light)',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  gap: '14px',
+                }}
+              >
+                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', maxWidth: '720px' }}>
+                  <strong style={{ color: 'var(--navy-900)' }}>Mutual Outcome:</strong>{' '}
+                  {activePair.outcome}
+                </p>
+                <Button variant="primary" size="md" onClick={() => handleDemoLaunch('/app/community')}>
+                  Request a Skill-Swap Pair <ArrowRight size={15} />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Flagship Bento-Grid Workspace + Live Charts Showcase */}
+      <section id="ai-agents" className="sb-section">
+        <div className="sb-container">
+          <div className="sb-section-header">
+            <Badge tone="lavender">Flagship Career Analytics & AI Suite</Badge>
             <h2>A Purpose-Built Bento Workspace With Visual Momentum</h2>
             <p>
               Track your 6-week readiness trajectory, inspect ATS keyword diffs, rehearse answers
@@ -466,7 +650,7 @@ export default function LandingPage() {
                 <Badge tone="success">+32% Readiness Lift</Badge>
               </div>
 
-              <ReadinessTrajectoryChart currentScore={86} height={195} />
+              <ReadinessTrajectoryChart currentScore={88} height={195} />
             </div>
 
             {/* Bento Cell 2 (5 cols): Career-Break Simulator */}
@@ -489,9 +673,9 @@ export default function LandingPage() {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px', borderRadius: '14px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(253, 230, 138, 0.2)' }}>
-                <ProgressRing value={84} size={72} label="Sim" dark />
+                <ProgressRing value={86} size={72} label="Sim" dark />
                 <div style={{ fontSize: '12.5px', color: 'var(--text-on-dark-muted)', display: 'grid', gap: '4px' }}>
-                  <strong style={{ color: '#FFFFFF' }}>3–4 Yr Break → Lead PM</strong>
+                  <strong style={{ color: '#FFFFFF' }}>3–4 Yr Break → Risk & Product Lead</strong>
                   <span>Est. 5.5 weeks to first returnship offer</span>
                 </div>
               </div>
@@ -541,7 +725,7 @@ export default function LandingPage() {
                     Before · Raw Gap
                   </div>
                   <span className="sb-diff-removed">3.5-year employment gap</span> caring for family and{' '}
-                  <span className="sb-diff-removed">helping out</span> at school events.
+                  <span className="sb-diff-removed">helping out</span> at community events.
                 </div>
                 <div className="sb-diff-panel sb-diff-after">
                   <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: 'var(--purple-700)', marginBottom: '6px' }}>
@@ -619,8 +803,8 @@ export default function LandingPage() {
                   Speak Your Answer Live
                 </h3>
                 <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', marginTop: '6px' }}>
-                  Use browser voice dictation to rehearse career-pause answers and get scored on
-                  Clarity, Confidence, and Impact.
+                  Use browser voice dictation to rehearse career-pause or pivot answers and get
+                  scored on Clarity, Confidence, and Impact.
                 </p>
               </div>
               <div style={{ marginTop: 'auto' }}>
@@ -655,14 +839,14 @@ export default function LandingPage() {
               </div>
               <div>
                 <span style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--purple-600)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                  Returnship Matcher
+                  Returnship & Encore Matcher
                 </span>
                 <h3 style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px' }}>
-                  Paid Cohorts & Flex Roles
+                  Paid Cohorts, Advisory & Flex Roles
                 </h3>
                 <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', marginTop: '6px' }}>
-                  Filter vetted employers offering mentorship, 4-day ramps, and 2–10 year break
-                  transparency from day one.
+                  Filter vetted employers offering reverse mentorship, 4-day ramps, encore
+                  fellowships, and transparent career-break hiring.
                 </p>
               </div>
               <div style={{ marginTop: 'auto' }}>
@@ -691,14 +875,14 @@ export default function LandingPage() {
       </section>
 
       {/* Curated Returnships Preview */}
-      <section id="returnships" className="sb-section">
+      <section id="returnships" className="sb-section sb-section-lavender">
         <div className="sb-container">
           <div className="sb-section-header">
             <Badge tone="lavender">Vetted Opportunity Board</Badge>
-            <h2>Employers Who Actively Welcome Career Breaks</h2>
+            <h2>Employers Who Actively Welcome Nonlinear Careers</h2>
             <p>
-              Every listing highlights paid returnship cohorts, structured onboarding ramps,
-              mentorship availability, and flexible work arrangements.
+              Every listing highlights paid returnship cohorts, encore fellowships, structured
+              onboarding ramps, and flexible work arrangements.
             </p>
           </div>
 
@@ -751,19 +935,19 @@ export default function LandingPage() {
       </section>
 
       {/* Stories */}
-      <section id="stories" className="sb-section sb-section-lavender">
+      <section id="stories" className="sb-section">
         <div className="sb-container">
           <div className="sb-section-header">
             <Badge tone="yellow">Community Proof</Badge>
-            <h2>Stories of Bold, Supported Comebacks</h2>
+            <h2>Stories of Bold, Supported Comebacks & Pivots</h2>
             <p>
-              Thousands of women have reclaimed their career momentum with clarity, peer circles,
-              and break-friendly employers.
+              Returners, retired specialists, and mid-career professionals across industries have
+              reclaimed momentum through SkillBack and two-way reverse mentorship.
             </p>
           </div>
 
           <div className="sb-grid-3">
-            {STORIES.map((story, idx) => (
+            {STORIES.map((story) => (
               <div
                 key={story.name}
                 className="sb-card sb-card-interactive"
@@ -771,7 +955,7 @@ export default function LandingPage() {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Quote size={24} color="var(--lavender-400)" />
-                  <Badge tone="success">Verified Return</Badge>
+                  <Badge tone="success">Verified Story</Badge>
                 </div>
                 <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: 1.7, flex: 1 }}>
                   “{story.quote}”
@@ -785,7 +969,7 @@ export default function LandingPage() {
                     borderTop: '1px solid var(--border-light)',
                   }}
                 >
-                  <ReturnerAvatar variant={STORY_AVATARS[idx % STORY_AVATARS.length]} size={44} />
+                  <ReturnerAvatar variant={story.avatar} size={44} />
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '14.5px' }}>{story.name}</div>
                     <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{story.role}</div>
@@ -816,7 +1000,8 @@ export default function LandingPage() {
                 Step Back In With Clarity, Confidence, and Strategy.
               </h2>
               <p style={{ color: 'var(--text-on-dark-muted)', fontSize: '15px', marginTop: '10px' }}>
-                Build your personalized career restart roadmap in under 5 minutes—free to start.
+                Build your personalized career restart roadmap or join a reverse-mentorship skill
+                swap in under 5 minutes.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>

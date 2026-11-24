@@ -251,7 +251,7 @@ export default function DashboardPage() {
           </div>
 
           <h2 style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 800, marginTop: '12px' }}>
-            Welcome back, {user?.name?.split(' ')[0] || 'Maya'}. Model Your Comeback Live.
+            Welcome back, {user?.name?.split(' ')[0] || 'Meera'}. Model Your Comeback Live.
           </h2>
           <p style={{ color: 'var(--text-on-dark-muted)', fontSize: '13.5px', marginTop: '4px' }}>
             Adjust your break duration, target role, and lived experience boosters to see your

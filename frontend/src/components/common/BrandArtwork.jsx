@@ -1,57 +1,74 @@
 const AVATAR_PALETTES = {
-  maya: {
+  rajesh: {
+    bgStart: '#FEF3C7',
+    bgEnd: '#FBCFE8',
+    hair: '#4A3A4D',
+    skin: '#DFA984',
+    top: '#2F1A33',
+    ring: 'rgba(245, 158, 11, 0.45)',
+    style: 'male_senior',
+  },
+  meera: {
     bgStart: '#FFEAF2',
     bgEnd: '#FDE68A',
     hair: '#2B182E',
-    skin: '#F5D6C6',
+    skin: '#E6B494',
     top: '#E11D74',
-    ring: 'rgba(253, 224, 71, 0.55)',
+    ring: 'rgba(236, 72, 153, 0.4)',
+    style: 'female_long',
   },
-  elena: {
-    bgStart: '#FEF3C7',
-    bgEnd: '#FBCFE8',
-    hair: '#412546',
-    skin: '#FCE2D4',
-    top: '#2F1A33',
-    ring: 'rgba(244, 114, 182, 0.5)',
-  },
-  priya: {
-    bgStart: '#FFF1F5',
-    bgEnd: '#FED7AA',
-    hair: '#2B182E',
-    skin: '#E6B89C',
+  arjun: {
+    bgStart: '#FFEDD5',
+    bgEnd: '#FDE68A',
+    hair: '#241726',
+    skin: '#D99E78',
     top: '#BE185D',
-    ring: 'rgba(251, 191, 36, 0.55)',
+    ring: 'rgba(245, 158, 11, 0.45)',
+    style: 'male_short',
   },
-  ananya: {
-    bgStart: '#FFEAF2',
-    bgEnd: '#FEF08A',
-    hair: '#2B182E',
-    skin: '#E8BC9F',
-    top: '#E11D74',
-    ring: 'rgba(236, 72, 153, 0.28)',
-  },
-  rachel: {
+  vikram: {
     bgStart: '#FEF9C3',
     bgEnd: '#FBCFE8',
-    hair: '#56325D',
-    skin: '#F8DFD1',
-    top: '#F59E0B',
-    ring: 'rgba(245, 158, 11, 0.3)',
-  },
-  sofia: {
-    bgStart: '#FFEDD5',
-    bgEnd: '#F9A8D4',
     hair: '#2B182E',
-    skin: '#EFC6AE',
-    top: '#DB2777',
-    ring: 'rgba(236, 72, 153, 0.28)',
+    skin: '#D79D78',
+    top: '#412546',
+    ring: 'rgba(236, 72, 153, 0.35)',
+    style: 'male_short',
+  },
+  aarav: {
+    bgStart: '#FFEAF2',
+    bgEnd: '#FED7AA',
+    hair: '#1F1422',
+    skin: '#E4AF8B',
+    top: '#F43F8E',
+    ring: 'rgba(244, 114, 182, 0.45)',
+    style: 'male_short',
+  },
+  chloe: {
+    bgStart: '#FEF3C7',
+    bgEnd: '#F9A8D4',
+    hair: '#5A3825',
+    skin: '#FCE0D0',
+    top: '#D97706',
+    ring: 'rgba(245, 158, 11, 0.4)',
+    style: 'female_bob',
+  },
+  zoya: {
+    bgStart: '#FFF1F5',
+    bgEnd: '#FDE68A',
+    hair: '#2B182E',
+    skin: '#EBBFA0',
+    top: '#E11D74',
+    ring: 'rgba(236, 72, 153, 0.4)',
+    style: 'female_long',
   },
 };
 
-export function ReturnerAvatar({ variant = 'maya', size = 44 }) {
-  const p = AVATAR_PALETTES[variant] || AVATAR_PALETTES.maya;
+export function ReturnerAvatar({ variant = 'meera', size = 44 }) {
+  const p = AVATAR_PALETTES[variant] || AVATAR_PALETTES.meera;
   const gradId = `sbAvatarGrad-${variant}-${size}`;
+  const isMale = p.style.startsWith('male');
+  const isSenior = p.style === 'male_senior';
 
   return (
     <svg
@@ -74,20 +91,44 @@ export function ReturnerAvatar({ variant = 'maya', size = 44 }) {
         </linearGradient>
       </defs>
       <circle cx="24" cy="24" r="24" fill={`url(#${gradId})`} />
-      <path
-        d="M14 24C14 16.82 18.48 12 24 12C29.52 12 34 16.82 34 24V31H14V24Z"
-        fill={p.hair}
-      />
-      <path
-        d="M10 45C11.6 37.5 17.1 34 24 34C30.9 34 36.4 37.5 38 45H10Z"
-        fill={p.top}
-      />
+
+      {!isMale && (
+        <path
+          d={
+            p.style === 'female_bob'
+              ? 'M14 23C14 16 18.5 11.5 24 11.5C29.5 11.5 34 16 34 23V27H14V23Z'
+              : 'M13.5 24C13.5 16.5 18.2 11.5 24 11.5C29.8 11.5 34.5 16.5 34.5 24V32.5H13.5V24Z'
+          }
+          fill={p.hair}
+        />
+      )}
+
+      {/* Shoulders */}
+      <path d="M10 45C11.6 37.5 17.1 34 24 34C30.9 34 36.4 37.5 38 45H10Z" fill={p.top} />
       <rect x="21" y="28" width="6" height="7" rx="3" fill={p.skin} />
       <circle cx="24" cy="22.5" r="7.2" fill={p.skin} />
-      <path
-        d="M16.8 21.5C17.4 17.2 20.5 14.8 24.4 14.8C28.1 14.8 30.8 17.1 31.2 20.6C28.6 19.6 26.2 18.2 24.2 17.2C22 18.9 19.4 20.4 16.8 21.5Z"
-        fill={p.hair}
-      />
+
+      {isMale ? (
+        <>
+          <path
+            d="M16.6 20.5C16.8 15.8 19.9 13.5 24 13.5C28.1 13.5 31.2 15.8 31.4 20.5C29.6 18.2 27.1 17.4 24 17.4C20.9 17.4 18.4 18.2 16.6 20.5Z"
+            fill={p.hair}
+          />
+          {isSenior && (
+            <>
+              {/* Subtle glasses for retired senior engineer */}
+              <circle cx="21" cy="22.5" r="2.5" stroke="#2B182E" strokeWidth="1.2" fill="none" />
+              <circle cx="27" cy="22.5" r="2.5" stroke="#2B182E" strokeWidth="1.2" fill="none" />
+              <path d="M23.5 22.5H24.5" stroke="#2B182E" strokeWidth="1.2" />
+            </>
+          )}
+        </>
+      ) : (
+        <path
+          d="M16.8 21.5C17.4 17.2 20.5 14.8 24.4 14.8C28.1 14.8 30.8 17.1 31.2 20.6C28.6 19.6 26.2 18.2 24.2 17.2C22 18.9 19.4 20.4 16.8 21.5Z"
+          fill={p.hair}
+        />
+      )}
     </svg>
   );
 }
