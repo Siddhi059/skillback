@@ -13,6 +13,7 @@ import {
   X,
   ClipboardCheck,
   Bell,
+  ShieldCheck,
 } from 'lucide-react';
 import Logo from '../common/Logo';
 import Badge from '../common/Badge';
@@ -28,6 +29,7 @@ const AGENT_ITEMS = [
   { to: '/app/resume-translator', label: 'Break & Resume AI', icon: Sparkles },
   { to: '/app/skill-roadmap', label: 'Skill Gap Roadmap', icon: Compass },
   { to: '/app/interview-coach', label: 'Interview Coach', icon: Mic },
+  { to: '/app/bias-audit', label: 'Bias Audit & SAP Sync', icon: ShieldCheck },
   { to: '/app/jobs', label: 'Returnship Roles', icon: Briefcase },
 ];
 
@@ -42,6 +44,7 @@ const PAGE_TITLES = {
   '/app/resume-translator': 'AI Break & Resume Translator',
   '/app/skill-roadmap': 'Skill Gap & Upskilling Plan',
   '/app/interview-coach': 'AI Interview Confidence Coach',
+  '/app/bias-audit': 'Bias Audit & SAP SuccessFactors Sync',
   '/app/jobs': 'Returnships & Flexible Roles',
   '/app/community': 'Two-Way Reverse Mentorship',
   '/app/settings': 'Account & Return Preferences',

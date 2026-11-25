@@ -10,6 +10,7 @@ import ResumeTranslatorPage from './pages/ResumeTranslatorPage';
 import SkillRoadmapPage from './pages/SkillRoadmapPage';
 import InterviewCoachPage from './pages/InterviewCoachPage';
 import JobsBoardPage from './pages/JobsBoardPage';
+import BiasAuditPage from './pages/BiasAuditPage';
 import CommunityPage from './pages/CommunityPage';
 import SettingsPage from './pages/SettingsPage';
 
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="skill-roadmap" element={<SkillRoadmapPage />} />
             <Route path="interview-coach" element={<InterviewCoachPage />} />
             <Route path="jobs" element={<JobsBoardPage />} />
+            <Route path="bias-audit" element={<BiasAuditPage />} />
             <Route path="community" element={<CommunityPage />} />
             <Route path="settings" element={<SettingsPage />} />
           </Route>

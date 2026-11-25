@@ -20,6 +20,7 @@ import Badge from '../components/common/Badge';
 import ProgressRing from '../components/common/ProgressRing';
 import { PartnerLogoMark } from '../components/common/BrandArtwork';
 import { DoodleSparkle, DoodleSunnyBuddy } from '../components/common/Doodles';
+import SapConnectorPanel from '../components/workspace/SapConnectorPanel';
 import {
   ReadinessTrajectoryChart,
   SkillBenchmarkChart,
@@ -651,6 +652,9 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* Interactive SAP SuccessFactors Connector & Bias Audit Flow */}
+      <SapConnectorPanel defaultTab="requisitions" />
     </div>
   );
 }

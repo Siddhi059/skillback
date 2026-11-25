@@ -62,6 +62,24 @@ const AVATAR_PALETTES = {
     ring: 'rgba(236, 72, 153, 0.4)',
     style: 'female_long',
   },
+  priya: {
+    bgStart: '#FFEAF2',
+    bgEnd: '#FED7AA',
+    hair: '#2B182E',
+    skin: '#E6B494',
+    top: '#BE185D',
+    ring: 'rgba(245, 158, 11, 0.45)',
+    style: 'female_long',
+  },
+  kabir: {
+    bgStart: '#FEF3C7',
+    bgEnd: '#FBCFE8',
+    hair: '#241726',
+    skin: '#D9A07B',
+    top: '#E11D74',
+    ring: 'rgba(236, 72, 153, 0.42)',
+    style: 'male_short',
+  },
 };
 
 export function ReturnerAvatar({ variant = 'meera', size = 44 }) {
