@@ -15,6 +15,36 @@ import {
 
 const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 const TOKEN_KEY = 'skillback_jwt_token_v1';
+const LOCAL_ACCOUNTS_KEY = 'skillback_local_accounts_v1';
+
+function getLocalAccounts() {
+  try {
+    const raw = localStorage.getItem(LOCAL_ACCOUNTS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveLocalAccounts(accounts) {
+  try {
+    localStorage.setItem(LOCAL_ACCOUNTS_KEY, JSON.stringify(accounts));
+  } catch {
+    // Ignore storage quota errors
+  }
+}
+
+function makeInitials(name = 'SB') {
+  return (
+    name
+      .trim()
+      .split(/\s+/)
+      .map((part) => part[0])
+      .join('')
+      .slice(0, 2)
+      .toUpperCase() || 'SB'
+  );
+}
 
 export function getStoredToken() {
   try {
@@ -56,11 +86,13 @@ async function request(path, options = {}) {
     headers,
   });
 
-  let data = null;
   const contentType = res.headers.get('content-type') || '';
-  if (contentType.includes('application/json')) {
-    data = await res.json();
+  if (!contentType.includes('application/json')) {
+    // Non-JSON responses (e.g. Vite proxy 500 text or Vercel HTML SPA rewrite) indicate no live API
+    throw new ApiError('Backend API unavailable', 503);
   }
+
+  const data = await res.json();
 
   if (!res.ok) {
     throw new ApiError(data?.message || `Request failed (${res.status})`, res.status);
@@ -71,9 +103,8 @@ async function request(path, options = {}) {
 function isNetworkOrProxyError(err) {
   return (
     err instanceof TypeError ||
-    err?.status === 502 ||
-    err?.status === 503 ||
-    err?.status === 504
+    [404, 405, 502, 503, 504].includes(err?.status) ||
+    (err?.status === 500 && (!err?.message || err.message.startsWith('Request failed')))
   );
 }
 
@@ -86,8 +117,19 @@ export const authService = {
       });
     } catch (err) {
       if (!isNetworkOrProxyError(err)) throw err;
+      const cleanEmail = (email || '').trim().toLowerCase();
+      const accounts = getLocalAccounts();
+      const matched = accounts.find((acc) => acc.email.toLowerCase() === cleanEmail);
+      if (matched) {
+        if (matched.password && password && matched.password !== password) {
+          throw new ApiError('Invalid email or password.', 401);
+        }
+        const publicUser = { ...matched };
+        delete publicUser.password;
+        return { user: publicUser, token: 'offline_demo_token' };
+      }
       return {
-        user: { ...DEMO_USER, email: email || DEMO_USER.email },
+        user: { ...DEMO_USER, email: cleanEmail || DEMO_USER.email },
         token: 'offline_demo_token',
       };
     }
@@ -101,22 +143,27 @@ export const authService = {
       });
     } catch (err) {
       if (!isNetworkOrProxyError(err)) throw err;
-      const initials = (name || 'Meera Deshmukh')
-        .split(' ')
-        .map((part) => part[0])
-        .join('')
-        .slice(0, 2)
-        .toUpperCase();
+      const cleanName = (name || 'New Returner').trim();
+      const cleanEmail = (email || DEMO_USER.email).trim().toLowerCase();
+      const accounts = getLocalAccounts();
+      const existing = accounts.find((acc) => acc.email.toLowerCase() === cleanEmail);
+      if (existing) {
+        throw new ApiError('An account with this email already exists. Please sign in.', 409);
+      }
+
+      const newUser = {
+        ...DEMO_USER,
+        id: `usr_local_${Date.now()}`,
+        name: cleanName,
+        email: cleanEmail,
+        avatarInitials: makeInitials(cleanName),
+        targetRole: targetRole?.trim() || DEMO_USER.targetRole,
+        onboardingCompleted: false,
+        readinessScore: 62,
+      };
+      saveLocalAccounts([...accounts, { ...newUser, password }]);
       return {
-        user: {
-          ...DEMO_USER,
-          name: name || DEMO_USER.name,
-          email: email || DEMO_USER.email,
-          avatarInitials: initials || 'SB',
-          targetRole: targetRole || DEMO_USER.targetRole,
-          onboardingCompleted: false,
-          readinessScore: 62,
-        },
+        user: newUser,
         token: 'offline_demo_token',
       };
     }

@@ -7,9 +7,8 @@ import { useAuth } from '../context/useAuth';
 import './AuthPage.css';
 
 export default function AuthPage() {
-  const [searchParams] = useSearchParams();
-  const initialMode = searchParams.get('mode') === 'signup' ? 'signup' : 'login';
-  const [mode, setMode] = useState(initialMode);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const mode = searchParams.get('mode') === 'signup' ? 'signup' : 'login';
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,9 +19,18 @@ export default function AuthPage() {
   const { login, signup, loginAsDemo } = useAuth();
   const navigate = useNavigate();
 
+  const switchMode = (nextMode) => {
+    setError('');
+    setSearchParams(nextMode === 'signup' ? { mode: 'signup' } : {});
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    if (mode === 'signup' && password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return;
+    }
     setLoading(true);
     try {
       if (mode === 'signup') {
@@ -124,14 +132,14 @@ export default function AuthPage() {
             <button
               type="button"
               className={`sb-auth-tab ${mode === 'login' ? 'active' : ''}`}
-              onClick={() => setMode('login')}
+              onClick={() => switchMode('login')}
             >
               Sign In
             </button>
             <button
               type="button"
               className={`sb-auth-tab ${mode === 'signup' ? 'active' : ''}`}
-              onClick={() => setMode('signup')}
+              onClick={() => switchMode('signup')}
             >
               Create Account
             </button>
@@ -186,12 +194,13 @@ export default function AuthPage() {
 
             <div>
               <label className="sb-label" htmlFor="auth-password">
-                Password
+                Password {mode === 'signup' ? '(min. 6 characters)' : ''}
               </label>
               <input
                 id="auth-password"
                 className="sb-input"
                 type="password"
+                minLength={mode === 'signup' ? 6 : undefined}
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
