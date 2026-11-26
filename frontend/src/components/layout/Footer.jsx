@@ -79,7 +79,7 @@ export default function Footer() {
           }}
         >
           <span>© {new Date().getFullYear()} SkillBack Inc. All rights reserved.</span>
-          <span style={{ color: '#FDE68A' }}>
+          <span style={{ color: '#E5C2CC' }}>
             Your Experience Never Goes Out of Style.
           </span>
         </div>

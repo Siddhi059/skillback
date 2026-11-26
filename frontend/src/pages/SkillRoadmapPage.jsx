@@ -95,12 +95,12 @@ export default function SkillRoadmapPage() {
                 <span style={{ color: 'var(--text-secondary)' }}>{mod.category}</span>
                 <span className="tabular-nums" style={{ color: 'var(--purple-700)' }}>{mod.progress}%</span>
               </div>
-              <div style={{ height: '8px', borderRadius: '999px', background: '#FFEAF2', overflow: 'hidden' }}>
+              <div style={{ height: '8px', borderRadius: '999px', background: '#F8ECEF', overflow: 'hidden' }}>
                 <div
                   style={{
                     width: `${mod.progress}%`,
                     height: '100%',
-                    background: mod.progress === 100 ? '#10B981' : 'linear-gradient(90deg, #FBBF24, #F43F8E)',
+                    background: mod.progress === 100 ? '#1F6F5B' : 'linear-gradient(90deg, #E5C2CC, #A04764)',
                     borderRadius: '999px',
                     transition: 'width 280ms ease',
                   }}

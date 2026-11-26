@@ -141,8 +141,8 @@ export default function InterviewCoachPage() {
           </p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <DoodleSparkle size={22} color="#FBBF24" />
-          <DoodleHeartNote size={38} />
+          <DoodleSparkle size={22} color="#E5C2CC" />
+          <DoodleHeartNote size={36} />
           <Badge tone={isListening ? 'warning' : 'success'}>
             <Volume2 size={12} /> {isListening ? 'Listening Live...' : 'Voice Input Ready'}
           </Badge>
@@ -178,10 +178,10 @@ export default function InterviewCoachPage() {
           })}
 
           <div className="sb-card-navy" style={{ padding: '20px', marginTop: '6px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FDE68A', fontSize: '12.5px', fontWeight: 700 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#F1DCE2', fontSize: '12.5px', fontWeight: 700 }}>
               <Lightbulb size={15} /> COACH TIP
             </div>
-            <p style={{ fontSize: '13.5px', color: '#FFF5F8', marginTop: '8px', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '13.5px', color: '#FCF8F9', marginTop: '8px', lineHeight: 1.6 }}>
               {selectedPrompt.tip}
             </p>
           </div>

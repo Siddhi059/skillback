@@ -227,7 +227,7 @@ export default function DashboardPage() {
       <div className="sb-bento-grid">
         <div className="sb-card-navy sb-bento-span-8" style={{ padding: '28px' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
-            <Badge tone="navy" style={{ background: 'rgba(253, 230, 138, 0.2)', color: '#FEF3C7' }}>
+            <Badge tone="navy" style={{ background: 'rgba(241, 220, 226, 0.18)', color: '#F8ECEF' }}>
               <SlidersHorizontal size={12} /> Interactive Career-Break Simulator
             </Badge>
             <button
@@ -236,7 +236,7 @@ export default function DashboardPage() {
               style={{
                 background: 'rgba(255,255,255,0.08)',
                 border: '1px solid rgba(255,255,255,0.16)',
-                color: '#FDE68A',
+                color: '#F1DCE2',
                 borderRadius: '999px',
                 padding: '5px 11px',
                 fontSize: '12px',
@@ -262,7 +262,7 @@ export default function DashboardPage() {
           <div style={{ display: 'grid', gap: '16px', marginTop: '20px' }}>
             {/* Break Duration Selector */}
             <div>
-              <div style={{ fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#FDE68A', marginBottom: '8px' }}>
+              <div style={{ fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#E5C2CC', marginBottom: '8px' }}>
                 1. Career Break Duration
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -277,10 +277,10 @@ export default function DashboardPage() {
                         padding: '7px 13px',
                         borderRadius: '10px',
                         border: active
-                          ? '1px solid rgba(253, 230, 138, 0.7)'
+                          ? '1px solid rgba(229, 194, 204, 0.7)'
                           : '1px solid rgba(255,255,255,0.14)',
                         background: active
-                          ? 'linear-gradient(135deg, rgba(244, 63, 142, 0.6), rgba(245, 158, 11, 0.42))'
+                          ? 'linear-gradient(135deg, rgba(184, 93, 121, 0.56), rgba(160, 71, 100, 0.36))'
                           : 'rgba(255,255,255,0.06)',
                         color: active ? '#FFFFFF' : 'var(--text-on-dark-muted)',
                         fontSize: '12.5px',
@@ -301,7 +301,7 @@ export default function DashboardPage() {
               <div>
                 <label
                   htmlFor="sim-target-role"
-                  style={{ display: 'block', fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#FDE68A', marginBottom: '8px' }}
+                  style={{ display: 'block', fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#E5C2CC', marginBottom: '8px' }}
                 >
                   2. Target Role
                 </label>
@@ -314,14 +314,14 @@ export default function DashboardPage() {
                     padding: '9px 12px',
                     borderRadius: '10px',
                     background: 'rgba(255,255,255,0.1)',
-                    border: '1px solid rgba(253, 230, 138, 0.34)',
+                    border: '1px solid rgba(229, 194, 204, 0.34)',
                     color: '#FFFFFF',
                     fontSize: '13.5px',
                     fontWeight: 600,
                   }}
                 >
                   {TARGET_ROLES.map((r) => (
-                    <option key={r.id} value={r.id} style={{ color: '#2B182E' }}>
+                    <option key={r.id} value={r.id} style={{ color: '#21171C' }}>
                       {r.label}
                     </option>
                   ))}
@@ -329,7 +329,7 @@ export default function DashboardPage() {
               </div>
 
               <div>
-                <div style={{ fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#FDE68A', marginBottom: '8px' }}>
+                <div style={{ fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#E5C2CC', marginBottom: '8px' }}>
                   3. Break Experience Boosters
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
@@ -344,10 +344,10 @@ export default function DashboardPage() {
                           padding: '6px 10px',
                           borderRadius: '999px',
                           border: active
-                            ? '1px solid #FDE047'
+                            ? '1px solid #F1DCE2'
                             : '1px solid rgba(255,255,255,0.16)',
-                          background: active ? 'rgba(253, 224, 71, 0.18)' : 'rgba(255,255,255,0.06)',
-                          color: active ? '#FEF08A' : 'var(--text-on-dark-muted)',
+                          background: active ? 'rgba(241, 220, 226, 0.2)' : 'rgba(255,255,255,0.06)',
+                          color: active ? '#FCF8F9' : 'var(--text-on-dark-muted)',
                           fontSize: '12px',
                           fontWeight: 600,
                           cursor: 'pointer',
@@ -380,7 +380,7 @@ export default function DashboardPage() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '18px', position: 'relative' }}>
-            <DoodleSparkle size={20} color="#F472B6" style={{ position: 'absolute', top: '-6px', left: '72px' }} />
+            <DoodleSparkle size={20} color="#E5C2CC" style={{ position: 'absolute', top: '-6px', left: '72px' }} />
             <ProgressRing value={liveReadiness} size={96} label="Ready" />
             <div>
               <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--purple-700)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -450,7 +450,7 @@ export default function DashboardPage() {
                   width: '34px',
                   height: '34px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #FFEAF2, #FEF3C7)',
+                  background: 'linear-gradient(135deg, #F8ECEF, #FAF5F3)',
                   color: 'var(--purple-600)',
                   display: 'flex',
                   alignItems: 'center',

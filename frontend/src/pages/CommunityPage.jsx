@@ -56,7 +56,7 @@ export default function CommunityPage() {
         }}
       >
         <div style={{ maxWidth: '680px' }}>
-          <Badge tone="navy" style={{ background: 'rgba(253, 230, 138, 0.2)', color: '#FEF3C7' }}>
+          <Badge tone="navy" style={{ background: 'rgba(241, 220, 226, 0.18)', color: '#F8ECEF' }}>
             <ArrowLeftRight size={12} /> Two-Way Reverse Mentorship & Mentor Circles
           </Badge>
           <h2 style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 800, marginTop: '10px' }}>
@@ -81,11 +81,11 @@ export default function CommunityPage() {
                   borderRadius: '999px',
                   border:
                     swapRole === opt.id
-                      ? '1px solid #FDE68A'
+                      ? '1px solid #E5C2CC'
                       : '1px solid rgba(255,255,255,0.2)',
                   background:
                     swapRole === opt.id
-                      ? 'linear-gradient(135deg, rgba(244,63,142,0.55), rgba(245,158,11,0.38))'
+                      ? 'linear-gradient(135deg, rgba(184, 93, 121, 0.5), rgba(160, 71, 100, 0.34))'
                       : 'rgba(255,255,255,0.06)',
                   color: '#FFFFFF',
                   fontSize: '12.5px',
@@ -168,7 +168,7 @@ export default function CommunityPage() {
 
                 <div style={{ fontSize: '12.5px', display: 'grid', gap: '6px' }}>
                   <div>
-                    <strong style={{ color: '#92400E' }}>Wisdom Shared:</strong>{' '}
+                    <strong style={{ color: '#53444B' }}>Wisdom Shared:</strong>{' '}
                     <span style={{ color: 'var(--text-secondary)' }}>{pair.senior.shares.join(' · ')}</span>
                   </div>
                   <div>

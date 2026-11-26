@@ -30,7 +30,7 @@ export default function BiasAuditPage() {
             or Skill Passports back to SAP.
           </p>
         </div>
-        <DoodleSparkle size={30} color="#FBBF24" />
+        <DoodleSparkle size={28} color="#E5C2CC" />
       </div>
 
       <SapConnectorPanel defaultTab="requisitions" />

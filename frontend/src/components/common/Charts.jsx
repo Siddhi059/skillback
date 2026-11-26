@@ -5,7 +5,6 @@ import { useId, useState } from 'react';
  */
 export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
   const gradPink = useId();
-  const gradYellow = useId();
   const [hoveredIdx, setHoveredIdx] = useState(5);
 
   const delta = currentScore - 84;
@@ -45,12 +44,12 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
     <div>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
         <div style={{ display: 'flex', gap: '14px', fontSize: '12px', fontWeight: 600 }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#BE185D' }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#E11D74' }} />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#843650' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#A04764' }} />
             Readiness ({activePoint.readiness}%)
           </span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#B45309' }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B' }} />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#664957' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#D19AA9' }} />
             Confidence ({activePoint.confidence}%)
           </span>
         </div>
@@ -67,12 +66,8 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
       >
         <defs>
           <linearGradient id={gradPink} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F472B6" stopOpacity="0.38" />
-            <stop offset="100%" stopColor="#FFEAF2" stopOpacity="0.02" />
-          </linearGradient>
-          <linearGradient id={gradYellow} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#FBBF24" />
-            <stop offset="100%" stopColor="#F59E0B" />
+            <stop offset="0%" stopColor="#D19AA9" stopOpacity="0.34" />
+            <stop offset="100%" stopColor="#FAF7F5" stopOpacity="0.02" />
           </linearGradient>
         </defs>
 
@@ -85,7 +80,7 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
                 y1={y}
                 x2={width - padR}
                 y2={y}
-                stroke="rgba(47, 26, 51, 0.08)"
+                stroke="rgba(39, 27, 33, 0.08)"
                 strokeDasharray="4 4"
               />
               <text
@@ -93,7 +88,7 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
                 y={y + 4}
                 textAnchor="end"
                 fontSize="10.5"
-                fill="#846A87"
+                fill="#7D6B73"
                 fontWeight="600"
               >
                 {tick}%
@@ -106,16 +101,16 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
         <path
           d={confPath}
           fill="none"
-          stroke={`url(#${gradYellow})`}
-          strokeWidth="2.5"
+          stroke="#C49A9A"
+          strokeWidth="2.3"
           strokeDasharray="5 4"
           strokeLinecap="round"
         />
         <path
           d={linePath}
           fill="none"
-          stroke="#E11D74"
-          strokeWidth="3"
+          stroke="#A04764"
+          strokeWidth="2.8"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -137,23 +132,23 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
                   y1={padT}
                   x2={x}
                   y2={padT + plotH}
-                  stroke="rgba(225, 29, 116, 0.22)"
+                  stroke="rgba(160, 71, 100, 0.2)"
                   strokeWidth="1.5"
                 />
               )}
               <circle
                 cx={x}
                 cy={yConf}
-                r={active ? 5 : 3.5}
-                fill="#F59E0B"
+                r={active ? 4.8 : 3.4}
+                fill="#D19AA9"
                 stroke="#FFFFFF"
                 strokeWidth="1.8"
               />
               <circle
                 cx={x}
                 cy={yRead}
-                r={active ? 6.5 : 4.5}
-                fill="#E11D74"
+                r={active ? 6.2 : 4.2}
+                fill="#A04764"
                 stroke="#FFFFFF"
                 strokeWidth="2"
               />
@@ -163,7 +158,7 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
                 textAnchor="middle"
                 fontSize="11"
                 fontWeight={active ? '700' : '500'}
-                fill={active ? '#BE185D' : '#846A87'}
+                fill={active ? '#843650' : '#7D6B73'}
               >
                 {pt.week}
               </text>
@@ -177,7 +172,7 @@ export function ReadinessTrajectoryChart({ currentScore = 84, height = 210 }) {
 }
 
 /**
- * Pastel Grouped Bar Chart: Prior Foundation vs AI-Translated Readiness
+ * Pastel Rose & Off-White Grouped Bar Chart: Prior Foundation vs AI-Translated Readiness
  */
 export function SkillBenchmarkChart({ items }) {
   const defaultItems = items || [
@@ -191,12 +186,12 @@ export function SkillBenchmarkChart({ items }) {
   return (
     <div style={{ display: 'grid', gap: '12px' }}>
       <div style={{ display: 'flex', gap: '14px', fontSize: '12px', fontWeight: 600 }}>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#92400E' }}>
-          <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#FDE68A', border: '1px solid #F59E0B' }} />
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
+          <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#EBD8D0', border: '1px solid #CBB2A8' }} />
           Before Framing
         </span>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#BE185D' }}>
-          <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: 'linear-gradient(135deg, #F472B6, #E11D74)' }} />
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#843650' }}>
+          <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: 'linear-gradient(135deg, #D19AA9, #A04764)' }} />
           SkillBack Translated
         </span>
       </div>
@@ -205,17 +200,17 @@ export function SkillBenchmarkChart({ items }) {
         <div key={item.label} style={{ display: 'grid', gap: '5px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12.5px' }}>
             <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{item.label}</span>
-            <span className="tabular-nums" style={{ fontWeight: 700, color: '#BE185D' }}>
+            <span className="tabular-nums" style={{ fontWeight: 700, color: '#843650' }}>
               {item.before}% → {item.after}%
             </span>
           </div>
           <div
             style={{
               position: 'relative',
-              height: '12px',
+              height: '11px',
               borderRadius: '999px',
-              background: '#FFF5F8',
-              border: '1px solid rgba(236, 72, 153, 0.14)',
+              background: '#FAF5F3',
+              border: '1px solid rgba(160, 71, 100, 0.14)',
               overflow: 'hidden',
             }}
           >
@@ -226,7 +221,7 @@ export function SkillBenchmarkChart({ items }) {
                 top: 0,
                 bottom: 0,
                 width: `${item.after}%`,
-                background: 'linear-gradient(90deg, #FBBF24 0%, #F472B6 55%, #E11D74 100%)',
+                background: 'linear-gradient(90deg, #E5C2CC 0%, #B85D79 58%, #A04764 100%)',
                 borderRadius: '999px',
                 transition: 'width 400ms var(--ease-out)',
               }}
@@ -238,7 +233,7 @@ export function SkillBenchmarkChart({ items }) {
                 top: 0,
                 bottom: 0,
                 width: `${item.before}%`,
-                background: 'rgba(254, 240, 138, 0.85)',
+                background: 'rgba(235, 216, 208, 0.92)',
                 borderRight: '2px solid #FFFFFF',
                 borderRadius: '999px 0 0 999px',
               }}
@@ -251,14 +246,14 @@ export function SkillBenchmarkChart({ items }) {
 }
 
 /**
- * Pastel Donut Chart: Weekly Return Focus Allocation
+ * Pastel Rose & Off-White Donut Chart: Weekly Return Focus Allocation
  */
 export function WeeklyAllocationDonutChart() {
   const segments = [
-    { id: 'narrative', label: 'Resume & Narrative', pct: 25, hours: '1.5h', color: '#F472B6' },
-    { id: 'skills', label: 'Skill Refresher Sprints', pct: 35, hours: '2.1h', color: '#FBBF24' },
-    { id: 'voice', label: 'Voice Interview Prep', pct: 20, hours: '1.2h', color: '#FB923C' },
-    { id: 'jobs', label: 'Returnship Outreach', pct: 20, hours: '1.2h', color: '#34D399' },
+    { id: 'narrative', label: 'Resume & Narrative', pct: 25, hours: '1.5h', color: '#A04764' },
+    { id: 'skills', label: 'Skill Refresher Sprints', pct: 35, hours: '2.1h', color: '#D19AA9' },
+    { id: 'voice', label: 'Voice & Reverse Swap', pct: 20, hours: '1.2h', color: '#E5C2CC' },
+    { id: 'jobs', label: 'Returnship Outreach', pct: 20, hours: '1.2h', color: '#DFC0B8' },
   ];
 
   const [activeId, setActiveId] = useState('skills');
@@ -342,8 +337,8 @@ export function WeeklyAllocationDonutChart() {
                 justifyContent: 'space-between',
                 padding: '7px 10px',
                 borderRadius: '10px',
-                border: isSelected ? '1px solid rgba(236, 72, 153, 0.28)' : '1px solid transparent',
-                background: isSelected ? '#FFF5F8' : 'transparent',
+                border: isSelected ? '1px solid rgba(160, 71, 100, 0.24)' : '1px solid transparent',
+                background: isSelected ? '#F8ECEF' : 'transparent',
                 cursor: 'pointer',
                 fontSize: '12.5px',
               }}

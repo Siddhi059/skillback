@@ -21,7 +21,7 @@ export default function ProgressRing({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke={dark ? 'rgba(255,255,255,0.16)' : '#FFE4EC'}
+          stroke={dark ? 'rgba(255,255,255,0.14)' : '#F4E4E9'}
           strokeWidth={strokeWidth}
         />
         <circle
@@ -38,9 +38,8 @@ export default function ProgressRing({
         />
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FBBF24" />
-            <stop offset="55%" stopColor="#F472B6" />
-            <stop offset="100%" stopColor="#E11D74" />
+            <stop offset="0%" stopColor={dark ? '#F4DCE2' : '#D19AA9'} />
+            <stop offset="100%" stopColor={dark ? '#D19AA9' : '#A04764'} />
           </linearGradient>
         </defs>
       </svg>
@@ -73,7 +72,7 @@ export default function ProgressRing({
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.04em',
-              color: dark ? '#FDE68A' : 'var(--text-muted)',
+              color: dark ? '#E5CFD6' : 'var(--text-muted)',
               marginTop: '3px',
             }}
           >

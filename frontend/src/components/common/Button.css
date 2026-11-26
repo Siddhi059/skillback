@@ -35,15 +35,15 @@
 }
 
 .sb-btn-primary {
-  background: linear-gradient(135deg, #e11d74 0%, #f43f8e 58%, #f59e0b 100%);
+  background: linear-gradient(135deg, #a04764 0%, #b85d79 100%);
   color: var(--white);
-  box-shadow: 0 8px 22px -6px rgba(225, 29, 116, 0.48);
+  box-shadow: 0 8px 20px -6px rgba(160, 71, 100, 0.42);
 }
 
 .sb-btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #be185d 0%, #e11d74 60%, #d97706 100%);
+  background: linear-gradient(135deg, #843650 0%, #a04764 100%);
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px -6px rgba(225, 29, 116, 0.58);
+  box-shadow: 0 12px 24px -6px rgba(132, 54, 80, 0.48);
 }
 
 .sb-btn-navy {
@@ -58,13 +58,13 @@
 }
 
 .sb-btn-secondary {
-  background: linear-gradient(135deg, #ffeaf2 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #f8ecef 0%, #f6efe9 100%);
   color: var(--purple-700);
-  border-color: rgba(236, 72, 153, 0.22);
+  border-color: rgba(160, 71, 100, 0.22);
 }
 
 .sb-btn-secondary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #ffd6e6 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #f1dce2 0%, #f4e8e1 100%);
 }
 
 .sb-btn-outline {

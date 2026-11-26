@@ -131,7 +131,7 @@ export default function AppShell() {
         <div className="sb-sidebar-footer">
           <div className="sb-readiness-mini">
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '6px' }}>
-              <span style={{ color: '#FDE68A', fontWeight: 600 }}>Return Readiness</span>
+              <span style={{ color: '#F1DCE2', fontWeight: 600 }}>Return Readiness</span>
               <span style={{ color: '#FFFFFF', fontWeight: 700 }}>{user?.readinessScore || 78}%</span>
             </div>
             <div
@@ -146,7 +146,7 @@ export default function AppShell() {
                 style={{
                   width: `${user?.readinessScore || 78}%`,
                   height: '100%',
-                  background: 'linear-gradient(90deg, #FBBF24, #F472B6)',
+                  background: 'linear-gradient(90deg, #E5C2CC, #B85D79)',
                   borderRadius: '999px',
                 }}
               />

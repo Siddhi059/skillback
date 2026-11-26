@@ -158,8 +158,8 @@ export default function LandingPage() {
         <div className="sb-container sb-hero-grid">
           <div style={{ position: 'relative' }}>
             <DoodleSparkle
-              size={26}
-              color="#FBBF24"
+              size={24}
+              color="#E5C2CC"
               style={{ position: 'absolute', top: '-12px', right: '28px' }}
             />
             <span className="sb-hero-eyebrow">
@@ -219,7 +219,7 @@ export default function LandingPage() {
                   alignItems: 'center',
                   gap: '8px',
                   fontWeight: 600,
-                  color: '#FDE68A',
+                  color: '#F1DCE2',
                 }}
               >
                 <span className="sb-live-dot" /> Live Break-to-Impact Preview
@@ -247,7 +247,7 @@ export default function LandingPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                   <ReturnerAvatar variant={activeTransform.avatar} size={50} />
                   <div>
-                    <Badge tone="navy" style={{ background: 'rgba(244, 114, 182, 0.24)', color: '#FDE68A' }}>
+                    <Badge tone="navy" style={{ background: 'rgba(184, 93, 121, 0.24)', color: '#F8ECEF' }}>
                       {activeTransform.targetTrack}
                     </Badge>
                     <h3 style={{ color: '#FFFFFF', fontSize: '19px', marginTop: '7px' }}>
@@ -263,24 +263,24 @@ export default function LandingPage() {
 
               <div className="sb-preview-pill">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 700, color: '#FDE68A', letterSpacing: '0.06em' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: '#E5C2CC', letterSpacing: '0.06em' }}>
                     EXPERIENCE → AI TRANSLATION
                   </span>
-                  <span style={{ fontSize: '11.5px', color: '#6EE7B7', fontWeight: 700 }}>
+                  <span style={{ fontSize: '11.5px', color: '#A7F3D0', fontWeight: 700 }}>
                     {activeTransform.atsLift}
                   </span>
                 </div>
                 <p style={{ fontSize: '12px', color: 'var(--text-on-dark-muted)', marginBottom: '8px', lineHeight: 1.45 }}>
-                  <strong style={{ color: '#FBCFE8' }}>Context:</strong> {activeTransform.rawContext}
+                  <strong style={{ color: '#F1DCE2' }}>Context:</strong> {activeTransform.rawContext}
                 </p>
                 <div
                   style={{
                     padding: '10px 12px',
                     borderRadius: '10px',
-                    background: 'rgba(244, 114, 182, 0.16)',
-                    border: '1px solid rgba(253, 230, 138, 0.28)',
+                    background: 'rgba(184, 93, 121, 0.18)',
+                    border: '1px solid rgba(229, 194, 204, 0.28)',
                     fontSize: '13px',
-                    color: '#FFF9FB',
+                    color: '#FCF8F9',
                     lineHeight: 1.5,
                   }}
                 >
@@ -295,7 +295,7 @@ export default function LandingPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <PartnerLogoMark company={activeTransform.company} size={36} />
                   <div>
-                    <span style={{ fontSize: '11px', fontWeight: 700, color: '#FDE68A', display: 'block' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 700, color: '#E5C2CC', display: 'block' }}>
                       TOP MATCH · {activeTransform.company.toUpperCase()}
                     </span>
                     <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#FFFFFF' }}>
@@ -308,8 +308,8 @@ export default function LandingPage() {
                 </div>
                 <span
                   style={{
-                    background: 'rgba(16, 185, 129, 0.18)',
-                    color: '#6EE7B7',
+                    background: 'rgba(31, 111, 91, 0.28)',
+                    color: '#A7F3D0',
                     padding: '6px 10px',
                     borderRadius: '999px',
                     fontSize: '12px',
@@ -340,7 +340,7 @@ export default function LandingPage() {
                     background: 'none',
                     border: 'none',
                     padding: 0,
-                    color: '#FDE68A',
+                    color: '#F1DCE2',
                     fontWeight: 600,
                     cursor: 'pointer',
                     display: 'inline-flex',
@@ -519,14 +519,14 @@ export default function LandingPage() {
                   style={{
                     padding: '20px',
                     borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(155deg, #FEFCE8 0%, #FEF3C7 100%)',
-                    border: '1px solid rgba(245, 158, 11, 0.28)',
+                    background: 'linear-gradient(155deg, #FCF9F6 0%, #F6EFE9 100%)',
+                    border: '1px solid rgba(184, 139, 130, 0.26)',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                     <ReturnerAvatar variant={activePair.senior.avatar} size={48} />
                     <div>
-                      <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#92400E' }}>
+                      <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#53444B' }}>
                         Experienced / Returning Partner
                       </span>
                       <h4 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--navy-900)' }}>
@@ -537,12 +537,12 @@ export default function LandingPage() {
                       </div>
                     </div>
                   </div>
-                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#92400E', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#53444B', marginBottom: '8px' }}>
                     Teaches & Shares:
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                     {activePair.senior.shares.map((skill) => (
-                      <Badge key={skill} tone="yellow" style={{ background: '#FFFFFF', borderColor: 'rgba(245, 158, 11, 0.35)' }}>
+                      <Badge key={skill} tone="yellow" style={{ background: '#FFFFFF', borderColor: 'rgba(184, 139, 130, 0.34)' }}>
                         {skill}
                       </Badge>
                     ))}
@@ -564,8 +564,8 @@ export default function LandingPage() {
                   style={{
                     padding: '20px',
                     borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(155deg, #FFF5F8 0%, #FFEAF2 100%)',
-                    border: '1px solid rgba(236, 72, 153, 0.24)',
+                    background: 'linear-gradient(155deg, #FDF8F9 0%, #F8ECEF 100%)',
+                    border: '1px solid rgba(160, 71, 100, 0.22)',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
@@ -656,10 +656,10 @@ export default function LandingPage() {
             {/* Bento Cell 2 (5 cols): Career-Break Simulator */}
             <div className="sb-card-navy sb-card-interactive sb-bento-card sb-bento-span-5">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Badge tone="navy" style={{ background: 'rgba(253, 230, 138, 0.2)', color: '#FEF3C7' }}>
+                <Badge tone="navy" style={{ background: 'rgba(241, 220, 226, 0.18)', color: '#F8ECEF' }}>
                   <SlidersHorizontal size={12} /> Interactive Simulator
                 </Badge>
-                <span style={{ fontSize: '12px', color: '#6EE7B7', fontWeight: 700 }}>Live Score</span>
+                <span style={{ fontSize: '12px', color: '#A7F3D0', fontWeight: 700 }}>Live Score</span>
               </div>
 
               <div>
@@ -672,7 +672,7 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px', borderRadius: '14px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(253, 230, 138, 0.2)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px', borderRadius: '14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(229, 194, 204, 0.2)' }}>
                 <ProgressRing value={86} size={72} label="Sim" dark />
                 <div style={{ fontSize: '12.5px', color: 'var(--text-on-dark-muted)', display: 'grid', gap: '4px' }}>
                   <strong style={{ color: '#FFFFFF' }}>3–4 Yr Break → Risk & Product Lead</strong>
@@ -688,7 +688,7 @@ export default function LandingPage() {
                     background: 'none',
                     border: 'none',
                     padding: 0,
-                    color: '#FDE68A',
+                    color: '#F1DCE2',
                     fontWeight: 600,
                     fontSize: '13.5px',
                     cursor: 'pointer',
@@ -991,7 +991,7 @@ export default function LandingPage() {
             />
             <div style={{ maxWidth: '600px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Badge tone="navy" style={{ background: 'rgba(253, 230, 138, 0.2)', color: '#FEF3C7' }}>
+                <Badge tone="navy" style={{ background: 'rgba(241, 220, 226, 0.18)', color: '#F8ECEF' }}>
                   Ready When You Are
                 </Badge>
                 <DoodleHeartNote size={36} />
@@ -1011,7 +1011,7 @@ export default function LandingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', borderColor: 'rgba(253,230,138,0.34)' }}
+                style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', borderColor: 'rgba(229,194,204,0.34)' }}
                 onClick={() => handleDemoLaunch('/app')}
               >
                 Try Demo Workspace

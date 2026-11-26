@@ -404,7 +404,7 @@ export default function SapConnectorPanel({ defaultTab = 'requisitions' }) {
                     {findings.length > 0 ? (
                       <div style={{ display: 'grid', gap: '10px' }}>
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-                          <span style={{ fontSize: '12px', fontWeight: 700, color: '#B45309', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <span style={{ fontSize: '12px', fontWeight: 700, color: '#9F5842', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                             <AlertTriangle size={14} /> {findings.length} biased phrase
                             {findings.length > 1 ? 's' : ''} detected by Bias Audit Agent
                           </span>
@@ -427,8 +427,8 @@ export default function SapConnectorPanel({ defaultTab = 'requisitions' }) {
                               style={{
                                 padding: '7px 12px',
                                 borderRadius: '10px',
-                                border: '1px solid rgba(236, 72, 153, 0.28)',
-                                background: '#FFF5F8',
+                                border: '1px solid rgba(160, 71, 100, 0.24)',
+                                background: '#F8ECEF',
                                 color: 'var(--purple-700)',
                                 fontSize: '12px',
                                 fontWeight: 600,
@@ -493,7 +493,7 @@ export default function SapConnectorPanel({ defaultTab = 'requisitions' }) {
                     cursor: 'pointer',
                     borderColor: selected ? 'var(--purple-600)' : 'var(--border-light)',
                     background: selected
-                      ? 'linear-gradient(145deg, #FFF5F8 0%, #FEF9C3 100%)'
+                      ? 'linear-gradient(145deg, #F8ECEF 0%, #FAF5F3 100%)'
                       : 'var(--white)',
                   }}
                 >
@@ -535,7 +535,7 @@ export default function SapConnectorPanel({ defaultTab = 'requisitions' }) {
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: '#FDE68A', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: '#F1DCE2', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     <Code2 size={14} /> SAP OData v2 Skill Passport Payload · {selectedCandidate.firstName}{' '}
                     {selectedCandidate.lastName}
                   </span>

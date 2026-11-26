@@ -79,7 +79,7 @@ export default function AuthPage() {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              color: '#FDE68A',
+              color: '#E5C2CC',
               marginBottom: '14px',
             }}
           >
@@ -99,8 +99,8 @@ export default function AuthPage() {
               'Personalized 30-60-90 day upskilling checklist',
               'Direct access to break-friendly employers & mentors',
             ].map((item) => (
-              <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#FFF5F8' }}>
-                <CheckCircle2 size={16} color="#FDE68A" />
+              <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#FCF8F9' }}>
+                <CheckCircle2 size={16} color="#E5C2CC" />
                 <span>{item}</span>
               </li>
             ))}

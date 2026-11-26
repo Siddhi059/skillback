@@ -7,9 +7,9 @@
 
 .sb-auth-brand-panel {
   background:
-    radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.24), transparent 45%),
-    radial-gradient(circle at 82% 80%, rgba(244, 114, 182, 0.24), transparent 45%),
-    linear-gradient(160deg, #221324 0%, #3a1f3f 55%, #5c2554 100%);
+    radial-gradient(circle at 20% 20%, rgba(229, 194, 204, 0.2), transparent 45%),
+    radial-gradient(circle at 82% 80%, rgba(184, 93, 121, 0.22), transparent 45%),
+    linear-gradient(160deg, #1b1317 0%, #2c1e25 55%, #412b35 100%);
   color: var(--text-on-dark);
   padding: 48px;
   display: flex;

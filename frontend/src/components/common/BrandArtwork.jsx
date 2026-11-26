@@ -1,83 +1,83 @@
 const AVATAR_PALETTES = {
   rajesh: {
-    bgStart: '#FEF3C7',
-    bgEnd: '#FBCFE8',
-    hair: '#4A3A4D',
+    bgStart: '#FAF5F3',
+    bgEnd: '#F1DCE2',
+    hair: '#4A3A42',
     skin: '#DFA984',
-    top: '#2F1A33',
-    ring: 'rgba(245, 158, 11, 0.45)',
+    top: '#271B21',
+    ring: 'rgba(160, 71, 100, 0.28)',
     style: 'male_senior',
   },
   meera: {
-    bgStart: '#FFEAF2',
-    bgEnd: '#FDE68A',
-    hair: '#2B182E',
+    bgStart: '#F8ECEF',
+    bgEnd: '#F6EFE9',
+    hair: '#271B21',
     skin: '#E6B494',
-    top: '#E11D74',
-    ring: 'rgba(236, 72, 153, 0.4)',
+    top: '#A04764',
+    ring: 'rgba(160, 71, 100, 0.3)',
     style: 'female_long',
   },
   arjun: {
-    bgStart: '#FFEDD5',
-    bgEnd: '#FDE68A',
-    hair: '#241726',
+    bgStart: '#F6EFE9',
+    bgEnd: '#F1DCE2',
+    hair: '#21171C',
     skin: '#D99E78',
-    top: '#BE185D',
-    ring: 'rgba(245, 158, 11, 0.45)',
+    top: '#843650',
+    ring: 'rgba(160, 71, 100, 0.28)',
     style: 'male_short',
   },
   vikram: {
-    bgStart: '#FEF9C3',
-    bgEnd: '#FBCFE8',
-    hair: '#2B182E',
+    bgStart: '#FAF7F5',
+    bgEnd: '#EBD8D0',
+    hair: '#271B21',
     skin: '#D79D78',
-    top: '#412546',
-    ring: 'rgba(236, 72, 153, 0.35)',
+    top: '#37262E',
+    ring: 'rgba(160, 71, 100, 0.25)',
     style: 'male_short',
   },
   aarav: {
-    bgStart: '#FFEAF2',
-    bgEnd: '#FED7AA',
-    hair: '#1F1422',
+    bgStart: '#F8ECEF',
+    bgEnd: '#FAF5F3',
+    hair: '#21171C',
     skin: '#E4AF8B',
-    top: '#F43F8E',
-    ring: 'rgba(244, 114, 182, 0.45)',
+    top: '#B85D79',
+    ring: 'rgba(184, 93, 121, 0.3)',
     style: 'male_short',
   },
   chloe: {
-    bgStart: '#FEF3C7',
-    bgEnd: '#F9A8D4',
-    hair: '#5A3825',
+    bgStart: '#FCF9F6',
+    bgEnd: '#F1DCE2',
+    hair: '#5A3D35',
     skin: '#FCE0D0',
-    top: '#D97706',
-    ring: 'rgba(245, 158, 11, 0.4)',
+    top: '#664957',
+    ring: 'rgba(160, 71, 100, 0.26)',
     style: 'female_bob',
   },
   zoya: {
-    bgStart: '#FFF1F5',
-    bgEnd: '#FDE68A',
-    hair: '#2B182E',
+    bgStart: '#FDF8F9',
+    bgEnd: '#E5C2CC',
+    hair: '#271B21',
     skin: '#EBBFA0',
-    top: '#E11D74',
-    ring: 'rgba(236, 72, 153, 0.4)',
+    top: '#A04764',
+    ring: 'rgba(160, 71, 100, 0.28)',
     style: 'female_long',
   },
   priya: {
-    bgStart: '#FFEAF2',
-    bgEnd: '#FED7AA',
-    hair: '#2B182E',
+    bgStart: '#F8ECEF',
+    bgEnd: '#F6EFE9',
+    hair: '#271B21',
     skin: '#E6B494',
-    top: '#BE185D',
-    ring: 'rgba(245, 158, 11, 0.45)',
+    top: '#843650',
+    ring: 'rgba(160, 71, 100, 0.3)',
     style: 'female_long',
   },
   kabir: {
-    bgStart: '#FEF3C7',
-    bgEnd: '#FBCFE8',
-    hair: '#241726',
+    bgStart: '#FAF5F3',
+    bgEnd: '#F1DCE2',
+    hair: '#21171C',
     skin: '#D9A07B',
-    top: '#E11D74',
-    ring: 'rgba(236, 72, 153, 0.42)',
+    top: '#A04764',
+    ring: 'rgba(160, 71, 100, 0.28)',
     style: 'male_short',
   },
 };
@@ -121,7 +121,6 @@ export function ReturnerAvatar({ variant = 'meera', size = 44 }) {
         />
       )}
 
-      {/* Shoulders */}
       <path d="M10 45C11.6 37.5 17.1 34 24 34C30.9 34 36.4 37.5 38 45H10Z" fill={p.top} />
       <rect x="21" y="28" width="6" height="7" rx="3" fill={p.skin} />
       <circle cx="24" cy="22.5" r="7.2" fill={p.skin} />
@@ -134,10 +133,9 @@ export function ReturnerAvatar({ variant = 'meera', size = 44 }) {
           />
           {isSenior && (
             <>
-              {/* Subtle glasses for retired senior engineer */}
-              <circle cx="21" cy="22.5" r="2.5" stroke="#2B182E" strokeWidth="1.2" fill="none" />
-              <circle cx="27" cy="22.5" r="2.5" stroke="#2B182E" strokeWidth="1.2" fill="none" />
-              <path d="M23.5 22.5H24.5" stroke="#2B182E" strokeWidth="1.2" />
+              <circle cx="21" cy="22.5" r="2.5" stroke="#271B21" strokeWidth="1.2" fill="none" />
+              <circle cx="27" cy="22.5" r="2.5" stroke="#271B21" strokeWidth="1.2" fill="none" />
+              <path d="M23.5 22.5H24.5" stroke="#271B21" strokeWidth="1.2" />
             </>
           )}
         </>
@@ -157,15 +155,15 @@ export function PartnerLogoMark({ company = 'Veridian Pay', size = 34 }) {
   if (key.includes('veridian')) {
     return (
       <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect width="36" height="36" rx="10" fill="#FFEAF2" />
+        <rect width="36" height="36" rx="10" fill="#F8ECEF" />
         <path
           d="M10 12.5L18 24.5L26 12.5"
-          stroke="#E11D74"
-          strokeWidth="2.8"
+          stroke="#A04764"
+          strokeWidth="2.6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="18" cy="12" r="2.2" fill="#F59E0B" />
+        <circle cx="18" cy="12" r="2.1" fill="#4C3540" />
       </svg>
     );
   }
@@ -173,9 +171,9 @@ export function PartnerLogoMark({ company = 'Veridian Pay', size = 34 }) {
   if (key.includes('lumina')) {
     return (
       <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect width="36" height="36" rx="10" fill="#FEF3C7" />
-        <circle cx="18" cy="18" r="6.5" stroke="#D97706" strokeWidth="2.4" />
-        <path d="M18 8V11M18 25V28M8 18H11M25 18H28" stroke="#F43F8E" strokeWidth="2.2" strokeLinecap="round" />
+        <rect width="36" height="36" rx="10" fill="#F6EFE9" />
+        <circle cx="18" cy="18" r="6.5" stroke="#843650" strokeWidth="2.3" />
+        <path d="M18 8V11M18 25V28M8 18H11M25 18H28" stroke="#B85D79" strokeWidth="2.1" strokeLinecap="round" />
       </svg>
     );
   }
@@ -183,10 +181,10 @@ export function PartnerLogoMark({ company = 'Veridian Pay', size = 34 }) {
   if (key.includes('northstar')) {
     return (
       <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect width="36" height="36" rx="10" fill="#FFF1F5" />
+        <rect width="36" height="36" rx="10" fill="#F9EFF2" />
         <path
           d="M18 8L20.7 15.3L28 18L20.7 20.7L18 28L15.3 20.7L8 18L15.3 15.3L18 8Z"
-          fill="#EC4899"
+          fill="#A04764"
         />
       </svg>
     );
@@ -195,20 +193,20 @@ export function PartnerLogoMark({ company = 'Veridian Pay', size = 34 }) {
   if (key.includes('aurelia')) {
     return (
       <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect width="36" height="36" rx="10" fill="#FFEDD5" />
-        <rect x="10" y="10" width="7" height="7" rx="2" fill="#E11D74" />
-        <rect x="19" y="10" width="7" height="7" rx="2" fill="#FBBF24" />
-        <rect x="10" y="19" width="7" height="7" rx="2" fill="#FBBF24" />
-        <rect x="19" y="19" width="7" height="7" rx="2" fill="#E11D74" />
+        <rect width="36" height="36" rx="10" fill="#F5EFEC" />
+        <rect x="10" y="10" width="7" height="7" rx="2" fill="#A04764" />
+        <rect x="19" y="10" width="7" height="7" rx="2" fill="#E5C2CC" />
+        <rect x="10" y="19" width="7" height="7" rx="2" fill="#E5C2CC" />
+        <rect x="19" y="19" width="7" height="7" rx="2" fill="#4C3540" />
       </svg>
     );
   }
 
   return (
     <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <rect width="36" height="36" rx="10" fill="#FEF9C3" />
-      <path d="M11 22C11 17.5817 14.5817 14 19 14H25" stroke="#E11D74" strokeWidth="2.6" strokeLinecap="round" />
-      <circle cx="24" cy="21" r="3" fill="#F59E0B" />
+      <rect width="36" height="36" rx="10" fill="#F8ECEF" />
+      <path d="M11 22C11 17.5817 14.5817 14 19 14H25" stroke="#A04764" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="24" cy="21" r="2.8" fill="#4C3540" />
     </svg>
   );
 }
